@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <WebRTC/WebRTC.h>
+#import "WebRTCHelper/WebRTCHelper.h"
 
 #define kAPPID @"1234567890abcdefg"
 
@@ -45,18 +46,19 @@
 
 
 -(void)connect:(NSString *)roomId{
-    NSString * string = @"http://115.236.101.203:18800/token";
-    string = [NSString stringWithFormat:@"%@?appid=%@&uid=%@",string,kAPPID,kDeviceUUID];
-    NSURL * url = [NSURL URLWithString:string];
-    RTCLog(@"Joining room:%@ on room server.", roomId);
-    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
-    urlRequest.HTTPMethod = @"POST";
-    __weak ViewController * weakSelf = self;
-    [[NSURLConnection rac_sendAsynchronousRequest:urlRequest] subscribeNext:^(RACTwoTuple<NSURLResponse *,NSData *> * _Nullable x) {
-        NSString * str = [[NSString alloc] initWithData:[x second] encoding:NSUTF8StringEncoding];
-        
-        NSLog(@"%@",str);
-    }];
+//    NSString * string = @"http://115.236.101.203:18800/token";
+//    string = [NSString stringWithFormat:@"%@?appid=%@&uid=%@",string,kAPPID,kDeviceUUID];
+//    NSURL * url = [NSURL URLWithString:string];
+//    RTCLog(@"Joining room:%@ on room server.", roomId);
+//    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+//    urlRequest.HTTPMethod = @"POST";
+//    __weak ViewController * weakSelf = self;
+//    [[NSURLConnection rac_sendAsynchronousRequest:urlRequest] subscribeNext:^(RACTwoTuple<NSURLResponse *,NSData *> * _Nullable x) {
+//        NSString * str = [[NSString alloc] initWithData:[x second] encoding:NSUTF8StringEncoding];
+//
+//        NSLog(@"%@",str);
+//    }];
+    [[WebRTCHelper shareInstance] connectServer:@"192.168.30.179" port:@"3000" room:@"100"];
 }
 
 - (void)didReceiveMemoryWarning {

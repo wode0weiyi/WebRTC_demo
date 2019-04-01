@@ -196,8 +196,8 @@
  * 连接服务器
  */
 -(void)connect{
-//    [[WebRTCHelper shareInstance] connectServer:@"192.168.30.186" port:@"3000" room:@"100"];
-    [[WebRTCHelper shareInstance] connectServer:@"115.236.101.203" port:@"18080" room:@"100"];
+    [[WebRTCHelper shareInstance] connectServer:@"192.168.30.179" port:@"3000" room:@"100"];
+//    [[WebRTCHelper shareInstance] connectServer:@"115.236.101.203" port:@"18080" room:@"100"];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
