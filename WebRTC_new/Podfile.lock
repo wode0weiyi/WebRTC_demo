@@ -5,13 +5,13 @@ PODS:
   - SocketRocket (0.5.1)
 
 DEPENDENCIES:
-  - GoogleWebRTC (~> 1.1.20266)
+  - GoogleWebRTC
   - HGAlertViewController (~> 1.0.1)
   - ReactiveObjC
   - SocketRocket
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - GoogleWebRTC
     - HGAlertViewController
     - ReactiveObjC
@@ -23,6 +23,6 @@ SPEC CHECKSUMS:
   ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
-PODFILE CHECKSUM: ac99cf877a91b5965816f647e0a66f729d54de8b
+PODFILE CHECKSUM: d8026dd22edc44b34ea3e145a3fee71bcd0c270f
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

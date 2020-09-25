@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "960E7DF58B3C2E0B76E2DEF5AD54E88B"
+               BlueprintIdentifier = "C8721DBD5F18332BDDB7293B7248B360"
+               BuildableName = "libHGAlertViewController.a"
                BlueprintName = "HGAlertViewController"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libHGAlertViewController.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

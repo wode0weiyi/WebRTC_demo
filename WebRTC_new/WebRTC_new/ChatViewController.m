@@ -126,7 +126,7 @@
 /*房间内其他用户*/
 @property (nonatomic,strong) NSMutableArray *members;
 //显示本地视频的view
-@property (weak, nonatomic) IBOutlet RTCCameraPreviewView *localVideoView;
+@property (strong, nonatomic) RTCCameraPreviewView *localVideoView;
 
 @end
 
@@ -152,6 +152,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if(!self.localVideoView){
+        self.localVideoView = [[RTCCameraPreviewView alloc]init];
+        self.localVideoView.frame = CGRectMake(200, 500, 100, 200);
+        [self.view addSubview:self.localVideoView];
+    }
     NSLog(@"uid = %@",[[[UIDevice currentDevice] identifierForVendor] UUIDString]);
     [WebRTCHelper shareInstance].delegate = self;
     [WebRTCHelper shareInstance].friendDelegate = self;
@@ -196,7 +201,7 @@
  * 连接服务器
  */
 -(void)connect{
-    [[WebRTCHelper shareInstance] connectServer:@"192.168.30.179" port:@"3000" room:@"100"];
+    [[WebRTCHelper shareInstance] connectServer:@"192.168.30.237" port:@"3000" room:@"100"];
 //    [[WebRTCHelper shareInstance] connectServer:@"115.236.101.203" port:@"18080" room:@"100"];
 }
 
@@ -242,6 +247,7 @@
  * 旧版本获取本地视频流的代理，在这个代理里面会获取到RTCVideoTrack类，然后添加到RTCEAGLVideoView类型的localVideoView上面
  */
 - (void)webRTCHelper:(WebRTCHelper *)webRTCHelper setLocalStream:(RTCMediaStream *)steam userId:(NSString *)userId{
+    NSLog(@"--------------本地视频");
     if (steam) {
         _localSteam = steam;
         RTCVideoTrack * track = [_localSteam.videoTracks lastObject];
@@ -254,6 +260,7 @@
  * @param captureSession RTCCameraPreviewView类的参数，通过设置这个，就可以达到显示本地视频的功能
  */
 - (void)webRTCHelper:(WebRTCHelper *)webRTCHelper capturerSession:(AVCaptureSession *)captureSession{
+    NSLog(@"--------------本地视频");
     self.localVideoView.captureSession = captureSession;
 }
 
@@ -261,6 +268,7 @@
  * 获取远端视频流的方法，主要是获取到RTCVideoTrack类型的数据，然后保存起来，在刷新列表的时候，添加到对应item里面的RTCEAGLVideoView类型的view上面
  */
 - (void)webRTCHelper:(WebRTCHelper *)webRTCHelper addRemoteStream:(RTCMediaStream *)stream userId:(NSString *)userId{
+    NSLog(@"获取远程视频：%@,%@",userId,stream.videoTracks);
     RTCVideoTrack * track = [stream.videoTracks lastObject];
     if (track != nil) {
         [self.videoTracks setObject:track forKey:userId];

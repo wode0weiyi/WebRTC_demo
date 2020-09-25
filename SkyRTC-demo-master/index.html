@@ -210,12 +210,19 @@
   });
   //接收到其他用户的视频流
   rtc.on('pc_add_stream', function (stream, socketId) {
-    var newVideo = document.createElement("video"),
+    console.log('接受其他视频流：', stream)
+    var newVideo = document.createElement("VIDEO"),
       id = "other-" + socketId;
     newVideo.setAttribute("class", "other");
-    newVideo.setAttribute("autoplay", "autoplay");
+    newVideo.setAttribute("autoplay", "true");
     newVideo.setAttribute("id", id);
+    try {
+      newVideo.srcObject = stream;
+    } catch (error) {
+      newVideo.src = URL.createObjectURL(stream);
+    }
     videos.appendChild(newVideo);
+    newVideo.play();
     rtc.attachStream(stream, id);
   });
   //删除其他用户

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3FCB41FD6F77FEE77ACCBE5BFBF46BBA"
+               BlueprintIdentifier = "1948D0B63D2CF6A48E18B0B292BC6091"
+               BuildableName = "libSocketRocket.a"
                BlueprintName = "SocketRocket"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libSocketRocket.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -49,7 +49,7 @@
  * 连接服务器
  */
 - (void)connect{
-    [[WebRTCHelper shareInstance] connectServer:@"192.168.30.186" port:@"3000" room:@"100"];
+    [[WebRTCHelper shareInstance] connectServer:@"192.168.10.213" port:@"3000" room:@"100"];
 }
 
 

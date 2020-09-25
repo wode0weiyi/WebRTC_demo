@@ -32,7 +32,7 @@
             self.jionRoomBtn.enabled = true;
         }
     }];
-    [self connect:@"100"];
+//    [self connect:@"100"];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -58,7 +58,7 @@
 //
 //        NSLog(@"%@",str);
 //    }];
-    [[WebRTCHelper shareInstance] connectServer:@"192.168.30.179" port:@"3000" room:@"100"];
+//    [[WebRTCHelper shareInstance] connectServer:@"169.254.245.179" port:@"3000" room:@"100"];
 }
 
 - (void)didReceiveMemoryWarning {

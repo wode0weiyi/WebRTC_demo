@@ -494,10 +494,10 @@ static WebRTCHelper * instance = nil;
 
 #pragma mark WebSocketDelegate
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message{
-    NSLog(@"收到服务器消息:%@",message);
+
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:[message dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
     NSString *eventName = dic[@"eventName"];
-    
+        NSLog(@"收到服务器消息:%@",dic);
     //1.发送加入房间后的反馈
     if ([eventName isEqualToString:@"_peers"])
     {
@@ -654,7 +654,7 @@ static WebRTCHelper * instance = nil;
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error{
-    NSLog(@"socket连接失败");
+    NSLog(@"socket连接失败%@",error);
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([self->_delegate respondsToSelector:@selector(webRTCHelper:socketConnectState:)]) {
             [self->_delegate webRTCHelper:self socketConnectState:WebSocketConnectSuccess];
