@@ -4,7 +4,7 @@
 	"dependencies": {
 		"ws": ">= 0.0.0",
 		"node-uuid": ">= 1.4.1",
-		"express": "3.1.0",
+		"express": "4.17.3",
 		"skyrtc": ">= 0.0.0"
 	},
 	"readmeFilename": "README.md"
